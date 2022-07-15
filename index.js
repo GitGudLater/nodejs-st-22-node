@@ -1,11 +1,11 @@
-const csv = require('csvtojson');
-const readableFS = require('fs').createReadStream("./nodejs-hw1-ex1.csv").pipe(csv({ delimiter: ';' }));
-const writableFS = require('fs').createWriteStream('./hw1-ex2.txt');
+import * as readLine from 'node:readline';
 
-readableFS.on('data', data => {
-    writableFS.write(data.toString());
+var readLineAI = readLine.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    terminal: false,
 });
 
-readableFS.on('error', error => console.error(error.message));
-
-writableFS.on('ready', () => console.log('Complited'));
+readLineAI.on('line', string => console.log(
+    string.split('').reverse().concat('\n').join('')
+));

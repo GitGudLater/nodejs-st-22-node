@@ -1,17 +1,17 @@
 'use strict';
 
-var csv = require('csvtojson');
-var readableFS = require('fs').createReadStream("./nodejs-hw1-ex1.csv").pipe(csv({ delimiter: ';' }));
-var writableFS = require('fs').createWriteStream('./hw1-ex2.txt');
+var _nodeReadline = require('node:readline');
 
-readableFS.on('data', function (data) {
-    writableFS.write(data.toString());
+var readLine = _interopRequireWildcard(_nodeReadline);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var readLineAI = readLine.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    terminal: false
 });
 
-readableFS.on('error', function (error) {
-    return console.error(error.message);
-});
-
-writableFS.on('ready', function () {
-    return console.log('Complited');
+readLineAI.on('line', function (string) {
+    return console.log(string.split('').reverse().concat('\n').join(''));
 });

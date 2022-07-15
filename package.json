@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "task2": "nodemon index.js",
-    "task2babel": "nodemon index_es5.js",
+    "task1": "nodemon index.js",
+    "task1babel": "nodemon index_es5.js",
     "babel": "babel",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
