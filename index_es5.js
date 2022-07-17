@@ -1,7 +1,7 @@
 'use strict';
 
 var csv = require('csvtojson');
-var readableFS = require('fs').createReadStream("./nodejs-hw1-ex1.csv").pipe(csv({ delimiter: ';' }));
+var readableFS = require('fs').createReadStream("csv/nodejs-hw1-ex1.csv").pipe(csv({ delimiter: ';' }));
 var writableFS = require('fs').createWriteStream('./hw1-ex2.txt');
 
 readableFS.on('data', function (data) {
