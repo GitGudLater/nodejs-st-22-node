@@ -1,6 +1,6 @@
-import * as readLine from 'node:readline';
+const readLine = require('node:readline');
 
-var readLineAI = readLine.createInterface({
+const readLineAI = readLine.createInterface({
     input: process.stdin,
     output: process.stdout,
     terminal: false,
