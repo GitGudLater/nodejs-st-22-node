@@ -5,9 +5,10 @@ const stream = require('stream')
 
 
 stream.pipeline(
-    require('fs').createReadStream(readableFile).pipe(csv({ delimiter: ';', colParser:{ amount:"number", price:"number"}, noheader: false, headers:['book','author','amount','price'], })),
+    require('fs').createReadStream(readableFile),
+    csv({ delimiter: ';', colParser:{ amount:"number", price:"number"}, noheader: false, headers:['book','author','amount','price'], }),
     require('fs').createWriteStream(writableFile),
     (error) => {
-        if (error) console.error(error);
+        if (error) console.error(error.message);
     },
 )
